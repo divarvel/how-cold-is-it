@@ -2,7 +2,16 @@
 
 const express = require('express');
 const Temp = require('./temperature.js');
+const redis = require("redis");
+const PORT = +process.env.PORT;
+const REDIS_URL = process.env.REDIS_URL;
 
+if(!PORT || !REDIS_URL) {
+	console.error("Missing env_variable");
+	process.exit(1);
+}
+
+let client = redis.createClient(REDIS_URL);
 let app = express();
 
 app.get('/farenheit/:value', (req, res) => {
@@ -19,4 +28,12 @@ app.get('/celcius/:value', (req, res) => {
   });
 })
 
-app.listen(3000, () => console.log("Server started on port 3000"));
+app.get('/history', (req, res) => {
+  client.get("history", (err, r) => {
+    res.send(r);
+  })	
+});
+
+app.listen(PORT, () => console.log("Server started on port " + PORT));
+
+
