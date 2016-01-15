@@ -20,18 +20,26 @@ describe('Temp', () => {
 
   describe('.f2c and .c2f', () => {
     it('compose to identity_f', () => {
-      assert.equal(0,  Temp.c2f(Temp.f2c(0)));
-      assert.equal(10, Temp.c2f(Temp.f2c(10)));
-      assert.equal(20, Temp.c2f(Temp.f2c(20)));
-      assert.equal(30, Temp.c2f(Temp.f2c(30)));
-      assert.equal(40, Temp.c2f(Temp.f2c(40)));
+      assert.equal(-40, Temp.c2f(Temp.f2c(-40)));
+      assert.equal(-30, Temp.c2f(Temp.f2c(-30)));
+      assert.equal(-20, Temp.c2f(Temp.f2c(-20)));
+      assert.equal(-10, Temp.c2f(Temp.f2c(-10)));
+      assert.equal(  0, Temp.c2f(Temp.f2c(  0)));
+      assert.equal( 10, Temp.c2f(Temp.f2c( 10)));
+      assert.equal( 20, Temp.c2f(Temp.f2c( 20)));
+      assert.equal( 30, Temp.c2f(Temp.f2c( 30)));
+      assert.equal( 40, Temp.c2f(Temp.f2c( 40)));
     });
     it('compose to identity_c', () => {
-      assert.equal(0,  Temp.f2c(Temp.c2f(0)));
-      assert.equal(10, Temp.f2c(Temp.c2f(10)));
-      assert.equal(20, Temp.f2c(Temp.c2f(20)));
-      assert.equal(30, Temp.f2c(Temp.c2f(30)));
-      assert.equal(40, Temp.f2c(Temp.c2f(40)));
+      assert.equal(-40, Temp.f2c(Temp.c2f(-40)));
+      assert.equal(-30, Temp.f2c(Temp.c2f(-30)));
+      assert.equal(-20, Temp.f2c(Temp.c2f(-20)));
+      assert.equal(-10, Temp.f2c(Temp.c2f(-10)));
+      assert.equal(  0, Temp.f2c(Temp.c2f(  0)));
+      assert.equal( 10, Temp.f2c(Temp.c2f( 10)));
+      assert.equal( 20, Temp.f2c(Temp.c2f( 20)));
+      assert.equal( 30, Temp.f2c(Temp.c2f( 30)));
+      assert.equal( 40, Temp.f2c(Temp.c2f( 40)));
     });
   });
 });
